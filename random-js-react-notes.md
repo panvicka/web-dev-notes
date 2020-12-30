@@ -23,3 +23,14 @@ const formatMoney = Intl.NumberFormat('en-CA', {
 // use it like this
 formatMoney(value / 100);
 ```
+
+## acess component data in chrome console
+
+- go to dev tools -> Components tab -> select the component you would like to inspect -> to go dev tools console -> write `$r`
+
+## flat()
+
+- takes array of arrays and puts it into one huge array
+``` javascript
+return pizzas.map((pizza) => pizza.toppings).flat();
+```
