@@ -120,6 +120,6 @@ root@secretServer:/tmp# ls -lh
 docker load -i gittea_backup_20201231.tar
 ```
 
-it should be visible in the Plesk UI. Start the container and then stop it again. It will get ID. So find the "Source" path again. (Steps 1+2 when creating the backup). Delete everything inside and replace it with the content of the backup data. Make sure the folder structure stayes the same and all invisible files are coppied as well. **if your are me reading this in future, disable automatic port mapping and set the _secret ports_ before starting the container. Doing it after will delete everything**
+it should be visible in the Plesk UI. Start the container and then stop it again. It will get ID. So find the "Source" path again. (Steps 1+2 when creating the backup). Delete everything inside and replace it with the content of the backup data. Make sure the folder structure stays the same and all invisible files are coppied as well. **if your are me reading this in future, disable automatic port mapping and set the _secret ports_ before starting the container. Doing it after will delete everything**
 
  Restart the server and enjoy!

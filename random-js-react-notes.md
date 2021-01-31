@@ -2,7 +2,7 @@
 
 ## react-icons
 
-if you want to have a cool icon of for example pizze you can import it `import { MdLocalPizza as icon } from 'react-icons/md'` and just use it.
+if you want to have a cool icon of for example pizza you can import it `import { MdLocalPizza as icon } from 'react-icons/md'` and just use it.
 <https://react-icons.github.io/react-icons> It also has all the **Font Awesome** icons.
 
 run this to install
@@ -24,7 +24,7 @@ const formatMoney = Intl.NumberFormat('en-CA', {
 formatMoney(value / 100);
 ```
 
-## acess component data in chrome console
+## access component data in chrome console
 
 - go to dev tools -> Components tab -> select the component you would like to inspect -> to go dev tools console -> write `$r`
 
