@@ -2,6 +2,9 @@
 
 - paste into any terminal with `Shift + insert` 
 - `sed` can have any delimiter you want to avoid escaping slash all the time 
+- restart localhost server with `service dnsmasq restart`
+- get OS details `cat /etc/os-release` 
+- edit network setting on system without UI without editing the `/etc/netplan` yaml file, `nmtui`
 
 ### VIM 
 - `O` to insert a new line above and start editing
@@ -27,3 +30,8 @@ pipeline:
       - apt-get install -y -qq gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget > /dev/null
       - node node_modules/puppeteer/install.js
 ```
+
+
+
+
+
