@@ -46,4 +46,7 @@ Standart linux network configuration files (all having something to do with DNS)
   * we can add stuff here, for example `127.0.0.1 google.com` will forward all people trying to reach google to localhost (show error)
 * /etc/resolv.conf
 * /etc/nsswitch.conf 
-Other configuration files differs between distributions. 
+Other configuration files differs between distributions.
+
+
+

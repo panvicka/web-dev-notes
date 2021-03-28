@@ -101,4 +101,19 @@ REACT_APP_AUTH0_CLIENT_ID=Qu1XXXXXXXXXXXXXXXXXXXoA2K
 - You need to add the `Allowed Web Origins` on your Auh0 setting page like this `http://localhost:3000` not like this `http://localhost:3000/`
  
 
- 
+ ## Image is not loading on canvas
+ This easy code is not working because the `draw` function will be always faster then the image loading. Add event listener on `load` and draw the image after all needed resources are loaded. 
+ ```javascript
+ // this wont work
+const image1 = new Image();
+image1.src = 'image1.jpg';
+ctx.drawImage(image1, 0, 0);
+
+// this will
+const image1 = new Image();
+image1.src = 'image1.jpg';
+image1.addEventListener('load', function() {
+  ctx.drawImage(image1, 0, 0);
+})
+ ```
+

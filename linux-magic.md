@@ -32,6 +32,34 @@ pipeline:
 ```
 
 
-
-
-
+## Linux folders
+- notes from (Linux File System/Structure Explained!
+)[https://www.youtube.com/watch?v=HbgzrKJvDRw]
+for linux "everything is a file"
+- FHS Filesystem Hierarchy Standard
+- *bin* (binaries), contains programs like `ls`, `cat` etc
+- *sbin* (system binaries), contains programs that would system administrator used, no permission to user 
+- *boot* bootloader 
+- *cdrom* legacy folder for mounting cd rom, not used that much anymore 
+- *dev* where devices live
+  - disk is *sda*, partitions *sda1*, *sda2*...
+  - everything from webcam to keyboard
+- *etc* (et cetera or edit to configure), all configuration system wide stored (not used stored)
+- *home* personal files
+- *lib*, *lib32*, *lib64* libraries for binaries 
+- *mnt*, *media* stuff like USB disks, external drivers... when mounting manually mount to *mnt*, let *media* for automatic OS mounting
+- *opt* optional, manually installed SW from vendors, you can install here SW that you create yourself 
+- *proc* files containing info about system processes, every process has its own directory with info 
+  - info about CPU `cat /proc/cpuinfo`
+  - update `cat /proc/uptime`
+- *root* root user home folder
+- *run* new order, runs in RAM, wiped after power shutdown, stores runtime information 
+- *snap* where snap packages are stored, mainly used by Ubuntu, these packages are self-contained packages that run differently than the other apps 
+- *src* service data
+- *sys* system folder, similar to *run*, created everytimes the system boots up
+- *tmp* temporary files, autosaving stuff etc.
+- *usr* user application space, for application used by user (not as *bin* where the application used by system live), apps nonessential for operation system run 
+  - has *lib* folder inside for libraries needed by those applications
+- *var* variables, grows in size
+  - crash reports
+  - logs 
