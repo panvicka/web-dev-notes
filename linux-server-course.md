@@ -46,7 +46,7 @@ Standart linux network configuration files (all having something to do with DNS)
   * we can add stuff here, for example `127.0.0.1 google.com` will forward all people trying to reach google to localhost (show error)
 * /etc/resolv.conf
 * /etc/nsswitch.conf 
-Other configuration files differs between distributions.
+Other configuration files differs between distributions. You can check version with `cat /etc/os-release`
 
 
-
+Network configuration for new(ist) systems in `/etc/netplan/` as yaml file - watch out for the indentation! Change what you need and then `sudo netplan apply`. You can also use text network configuration with `sudo nmtui`. Configuration in old systems with `/etc/network/interfaces`  
