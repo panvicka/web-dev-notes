@@ -117,3 +117,6 @@ image1.addEventListener('load', function() {
 })
  ```
 
+### Routing types
+- React router -> config based 
+- Next.js -> file system base routing (files are in order `pages` and it shows up)
