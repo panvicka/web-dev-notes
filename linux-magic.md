@@ -63,7 +63,8 @@ for linux "everything is a file"
 - *var* variables, grows in size
   - crash reports
   - logs 
-- `dev/zero` is nowhere, only root can get there
+- `dev/zero` is nowhere, only root can get there... outputs stream of zeros, used for creating of dummy files or swaps 
+- `dev/null` is also nowwhere and produces no output 
 
 
 ### Tabs 

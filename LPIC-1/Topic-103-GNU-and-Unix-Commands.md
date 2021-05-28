@@ -60,7 +60,10 @@
   - `-a` show hidden stuff as well 
   - `-h` human readable sizes 
 - read files 
-  - `cat` prints the whole thing, may not be usefull if the file is large 
+  - `cat` prints the whole thing, may not be usefull if the file is large, `tac` is cat but reversed 
+    - `-E` shows end of every line with $ (sometimes spaced at end of the line are a problem)
+    - `-T` shows tabs 
+    - `-n` line numbers
   - `more` fills only one terminal window at time, enter for one more line, space for whole terminal window refresh 
   - `less` same as more but it can go backwards as well 
 - to find used command `history` prints all 
@@ -93,6 +96,13 @@
   - add user to sudo group with `usermod -aG sudo USER`
 
 - show last 20 lines of history with tail `history | tail -20` or just `history 20` 
+- `tail -f` file is also refreshing automatically 
+- `tail -n 20 fileToCheck` show me last 20 lines of the file 
+- combine `head` and `tail` to display a specific line of the file... head of 20 lines | tail -n 1 for line 19 :)
+- `od` od command in Linux is used to convert the content of input in different formats with octal format as the default format.This command is especially useful when debugging Linux scripts for unwanted changes or characters. 
+- `cut` cut is a command-line utility that allows you to cut parts of lines from specified files or piped data and print the result to standard output. It can be used to cut parts of a line by delimiter, byte position, and character.
+
+ 
 
 - show env variables `env` 
 - `export var` if you want to access it in a new shell (created with `bash`)
@@ -113,7 +123,21 @@
 
 - input redirection with `<` for example send a log with email `mail -s "subject" dave < log.txt`
 - `cat 2021 > ~/calfile` cave calendar 2021 into home directory 
-
+- `&>` sending standart output and standart error to the same location 
+- `tee` always used after pipe ` | tee`, send input to file and to standart output 
+- `xargs` command in UNIX is a command line utility for building an execution pipeline from standard input
+  - Whilst tools like `grep` can accept standard input as a parameter, many other tools cannot. Using `xargs` allows tools like `echo` and `rm` and `mkdir` to accept standard input as arguments.
+  - `-t` show me what you are doing 
+  - `-p` show me what are you about to do and prompt me to accept it 
+- `-exec` more or less the same as `xargs`, `find . "bla" -exec rm {} \;`
+  - `;` or `\;` terminating shell command, will execute multiple commands
+  - `+` or `+` terminating shell command with arguments combined together
+  - 
+```
+echo 'one two three' | xargs mkdir
+ls
+one two three
+```
 
 ## 103.5 Create, monitor and kill processes
 
