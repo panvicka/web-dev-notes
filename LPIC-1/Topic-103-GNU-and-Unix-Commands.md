@@ -66,6 +66,9 @@
 - to find used command `history` prints all 
   - or pipe it with `grep` to narrow down the result 
   - in  `/home` there is `.bash_history` with a lot of commands (latest commands are added after session end)
+  - `!numberOfCommand` to call it again 
+  - `ctrl+r` reverse-i-search to find command i have used before 
+  - hidding embarassing stuff `history -c` but the file `.bash_history` stayes there, so delete that as well :) 
 
 - linux commands are *hashed* after use, so they can be used quickly again
   - `hash -d` to clean the table
@@ -109,7 +112,7 @@
 - every process running has those 3 channels
 
 - input redirection with `<` for example send a log with email `mail -s "subject" dave < log.txt`
-
+- `cat 2021 > ~/calfile` cave calendar 2021 into home directory 
 
 
 ## 103.5 Create, monitor and kill processes
@@ -161,3 +164,4 @@ Resources I liked
   - SLEEPING - waiting for something 
   - ZOMBIE - finished and waiting to be killed
   - STOPPED - stopped by SIGSTOP and waiting for SIGCONT to resume 
+- `ps aux` list all processes running on a system 

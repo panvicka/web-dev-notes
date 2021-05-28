@@ -63,3 +63,13 @@ for linux "everything is a file"
 - *var* variables, grows in size
   - crash reports
   - logs 
+- `dev/zero` is nowhere, only root can get there
+
+
+### Tabs 
+New tab: `Ctrl + Shift + T`
+Close tab: `Ctrl + Shift + W`
+Switch tab: `Ctrl + Pg Up` and `Ctrl + Pg Dn`
+Move tab: `Ctrl + Shift + Pg Up` and `Ctrl + Shift + Pg Dn`
+
+### Command line tricks 

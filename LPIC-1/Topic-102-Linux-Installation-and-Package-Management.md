@@ -1,6 +1,22 @@
 ## Topic 102: Linux Installation and Package Management
 
 ## 102.1 Design hard disk layout
+- The Filesystem Hierarchy Standard (FHS) defines the directory structure and directory contents in Linux distributions. It is maintained by the Linux Foundation, check here (wiki)[https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard], it is not forced 
+- `find` where what, `find / -name 'pass*'`, takes a lot of time
+- `locate` is faster, looking in database (must be generated with `updatedb`, runs once a day at cron... so files created before the update wont be found with locate), not looking for exact match 
+- `whereis` locate binary, source and manual page for a command 
+- `which`full path of shell command
+- `man hier` to get a manual for hierarchy 
+- `bin` binaries for everyone, `sbin` (superuser bin) binaries only for root user 
+- `mnt` manual mounting, `media` automatic mount
+- `run` new folder on only new linux systems, info about running processes 
+- `srv` services, Red Head & CentoOS doing it in `var` 
+- `usr` 
+  - `local` utilities that you write for yourself to make your life easier 
+  - `share` if you want to share it :) 
+- `var` can gets quite large, offten stored somewhere else. ALso place for webserver, databases, ftp server,...  
+  - > Variable files: files whose content is expected to continually change during normal operation of the system, such as logs, spool files, and temporary e-mail files.
+- `du` disk usage, `ds -hu` human summary 
 - decoding file types
 - first letter is type 
   - `-` regular file
@@ -34,3 +50,8 @@
 **Disk management - partitions**
 - MBR - master boot record (limited to 2TB)
 - GPT - GUID (global unique identifier), 128 partitions, 9.4 ZB
+
+- create a file system `mkfs` 
+- mount with `mount` 
+- how much free space? `df` (disk free)
+- unmount with `umount`
