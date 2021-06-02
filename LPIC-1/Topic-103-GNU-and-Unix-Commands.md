@@ -36,6 +36,18 @@
 - wc
 - xzcat
 - zcat
+- fmt
+- pr
+- expand
+- unexpand
+- convert
+- join 
+- paste
+- split
+- sort 
+- tr
+- uniq
+- wc
 
 ## Notes to all of them + random stuff 
 
@@ -59,6 +71,7 @@
   - `-l` as a list with more info 
   - `-a` show hidden stuff as well 
   - `-h` human readable sizes 
+  - `-i` shows inode numbers 
 - read files 
   - `cat` prints the whole thing, may not be usefull if the file is large, `tac` is cat but reversed 
     - `-E` shows end of every line with $ (sometimes spaced at end of the line are a problem)
@@ -72,6 +85,12 @@
   - `!numberOfCommand` to call it again 
   - `ctrl+r` reverse-i-search to find command i have used before 
   - hidding embarassing stuff `history -c` but the file `.bash_history` stayes there, so delete that as well :) 
+- `something | nl` number lines 
+- `sed` substitutions 
+- `sort` sorting alphabetically, with option `-n` includes numbers as well 
+  - `-f` uppercase go first
+  - `-r` reverse 
+  - `-k 2` sorting based of column 
 
 - linux commands are *hashed* after use, so they can be used quickly again
   - `hash -d` to clean the table
@@ -139,6 +158,8 @@ ls
 one two three
 ```
 
+-`mkdir some/files` fails because `some` doesnt exists yet, use `mkdir -p`
+
 ## 103.5 Create, monitor and kill processes
 
 Resources I liked
@@ -189,3 +210,92 @@ Resources I liked
   - ZOMBIE - finished and waiting to be killed
   - STOPPED - stopped by SIGSTOP and waiting for SIGCONT to resume 
 - `ps aux` list all processes running on a system 
+- `ps fax` shows relation between parent and child processes 
+- `pgrep` shows filtered processes ID 
+
+
+## Reg. expression
+- basic and extended, check what does the app support 
+- bracket expressions `grep b[iag] *`
+- range expressions `grep [0-9][0-9]`
+- find lines starting/ending `grep ^lisa$`
+
+
+
+## LPIC book
+- start terminal CTRL+ALT+F2
+- in GUI Ubuntu CTRL+ALT+T , all other `term` in search bar 
+  - BASH (original Bourne Again Shell)
+    - symbolic link `/bin/sh` (use readlink to read it), typically pointing to Bash shell 
+  - Dash - no history, command-line editing but faster script execution 
+  - KornShell - same as Bash but supports extended functions available in C programming language 
+  - tcsh - upgraded C-shell 
+  - Z-shell, features from Bash, tcsh and KornShell
+  - check what shell is used with `echo $SHELL`, or check bash version with `echo $BASH_VERSION`
+  - `uname` 
+    - `r` kernel version 
+    - `a` all 
+- metacharacters `* ? [ ] ' " \ $ ; & ( ) | ^ < >` 
+    - To shell quote a single character, use the backslash (\) or use `"` or `'`, use `"` if the text contains `'` 
+- files on a linux system are stored within a single directory structure - virtual directory, base is root directory 
+- go home with `cd`, `cd ~`, `cd $HOME` 
+- recent working directory `cd -` 
+- internal and external commands, take them appart with `type` 
+    - will tell you if `shell buildin` or path to the command 
+- command may be both (available internally and externally). Check the difference, it may produce a different result.
+- to check env variabels
+    - `set`
+    - `env`
+    - `printenv`
+- You can determine whether your process is currently in a subshell by looking at the data stored in the SHLVL environment variable. A 1 indicates you are not in a subshell, because subshells have higher numbers. Thus, if SHLVL contains a number higher than 1, this indicates you’re in a subshell.
+- use unset with care, it is better to set the variable with the previous value 
+- search `man` for keywords with `-k` or `apropos` 
+- `man` has 9 sections 
+  - 1   Executable programs or shell commands
+  - 2   System calls (functions provided by the kernel)
+  - 3   Library calls (functions within program libraries)
+  - 4   Special files (usually found in /dev)
+  - 5   File formats and conventions eg /etc/passwd
+  - 6   Games
+  - 7   Miscellaneous  (including  macro  packages  and  conventions), e.g.  man(7), groff(7)
+  - 8   System administration commands (usually only for root)
+  - 9   Kernel routines [Non standard]
+- in case of `passwd` it can find both command and a file, use `man -s/S/- passwd` to specify 
+- if nothing is found, maybe `man` is not updated, try `makewhatis` (old) or `mandb`
+- `.bash_history` doesnt have the most recent command, they will be saved after a restart 
+  - you can force it to append with `-a`
+  - `r` overwrittes history list with commands in history file 
+- wiping history
+  - `history -c` to delete it, `history -w` to copy the empty history into the file 
+- *Nano*, commads with `M-k`, M is a meta key or esc or alt
+  - make it a default editor `export EDITOR=nano ` and `export VISUAL=nano` or add them to env file 
+- `vi` sometimes starting `vim`, check with `which`, some distros do not have it (but may have vi.tiny)
+- cat
+  - `-a` show all (like `VEt`)
+  - `-n` line numbers 
+  - `-s` remove blank lines 
+  - `-T` show tabs 
+  - `-E` show ends 
+  - `-v` nonprintable
+    - shown with carrot notation 
+- just gluing two files next to each other `paste` 
+- `od` show files in octal (default) or another number system 
+  - `od cp` show the decoding directly on the text, quite helpful for embedded i guess 
+- `split` for splitting large files, with `-l 3` choose how many lines 
+- `sort` and include numbers `-n` 
+  - `sort -o fileToSort.txt saveToSaveTo.txt` 
+- `nl` numbering, also numbering empty lines -ba
+- `more` no moving backwards, `less` can 
+- `tail -f FILE` will watch log (-f as follow)
+- `wc` number of lines, words, bytes 
+  - An interesting wc option for troubleshooting configuration files is the -L switch. Generally speaking, line length for a configuration file will be under 150 bytes, though there are exceptions. Thus, if you have just edited a configuration file and that service is no longer working, check the file’s longest line length. A longer than usual line length indicates you might have accidently merged two configuration file lines. An example is shown in Listing 1.43.
+- *Text file record* single file line that ends in a newline linefeed LF ($, shonw with `cat -E`)
+- *Text file record delimiter* boundaries between different data items within a record 
+- `grep`, returns text file records (lines)
+  - `-c` show how many records fit 
+  - `-E` extendet regex
+  - `-i` ignore count 
+  - `-r/R` recursive 
+  - `-v` invert match 
+- `fgrep -f` === `grep -F -f`, `egrep` == `grep -E`
+- `grep -v ^$ FILE` to filter out empty lines 

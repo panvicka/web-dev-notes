@@ -55,3 +55,16 @@
 - mount with `mount` 
 - how much free space? `df` (disk free)
 - unmount with `umount`
+
+
+- `df` disk layout
+  - `h` human
+  - `T` type
+  - real hardware names starting with `dev` 
+  - kernel interfaces are shown like `tmpfs`
+- `fdisk`
+- MBR (master boot record), disk with max. 15 TiB, 15 partitions 
+- GPT, need another disk layout UEFI
+  - stores backup table at the end of the disk 
+  - disk management tool `gdisk` 
+- LVM logical volumen manager 
