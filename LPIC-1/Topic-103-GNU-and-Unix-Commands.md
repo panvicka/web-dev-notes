@@ -299,3 +299,4 @@ Resources I liked
   - `-v` invert match 
 - `fgrep -f` === `grep -F -f`, `egrep` == `grep -E`
 - `grep -v ^$ FILE` to filter out empty lines 
+- for exercises with `grep` check this [learnbyexample/Command-line-text-processing](https://github.com/learnbyexample/Command-line-text-processing/tree/master/exercises)

@@ -68,3 +68,37 @@
   - stores backup table at the end of the disk 
   - disk management tool `gdisk` 
 - LVM logical volumen manager 
+
+### package management redhat
+- `yum search PACKAGE_NAME` will look for a package
+- if you cant find it, use `yum whatprovides */PACKAGE_NAME` to check not only package description
+- `rpm -qa` show all installed packages
+- `rpm -qi PACKAGE` or `rpm -qa PACKAGE` to get details 
+- `rpm -qR` get dependencies 
+- `rpm -qc` show configurations files
+- `rpm -q --whatprovides` 
+- verify package with `rpm -V`, good response is `.`
+- extracting rmp packages with `rpm2cpio PACKAGE > name.cpio` and then `cpio -div < name.cpio`
+  - `-i` copy mode
+  - `-d` creates subdirectory 
+  - `-v` verbose 
+- using `rpm` is pain in the *, you have to install all dependencies yourself, use `yum` instead 
+- repository list stored `etc/yum.repos.d/` 
+- prepared programs "groups", check with `yum grouplist` and install with `yum groupinstall "GROUP NAME" `
+- `dnf` is better `yum`
+
+### package management debian 
+- `dpkg --get-selection` to show everything installed 
+- `dpkg -S FILE_NAME` find to which package the file belongs
+- `dpkg -L PACKAGE` find all files that belong to the package 
+- `dpkg -p PACKAGE` more info about package
+
+
+- package-name-version-release.architecture.rpm for RPM packages 
+  - release, also called build number
+  - sometimes with release numbers from GIT included from CI/CD 
+  - distro in version build number, el7 Red Hat Enterprise Linux V7, fc29 (Fedora)
+  - architecture x68_64 for 64bin process 
+  - there are sources and binaries, we want binearies, it is bundled. Source has `src` in architecture 
+
+
